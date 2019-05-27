@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones de una variable</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style-ecuations.css">
+    <link rel="stylesheet" href="../css/mobile-style.css">
+</head>
+<body>
+    <header>
+        <div class="container-fluid p-0">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#"><i class="fas fa-book-reader fa-1x mx-3"></i>Analisis numerico</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-right text-light"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <div class="mr-auto"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Pagina principal <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Ecuaciones no lineales <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="sistema-ecuaciones.html">Sistemas de ecuaciones <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="interpolacion.html">Interpolación <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-align-left"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="return toggleMe('section-incremental')">Busquedas incrementales<span class="sr-only" >(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="return toggleMe('section-bisection')">Bisección<span class="sr-only" >(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="return toggleMe('section-rule')">Regla falsa<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="return toggleMe('section-point')">Punto fijo<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="return toggleMe('section-newton')">Newton<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="return toggleMe('section-secant')">Secante<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="return toggleMe('section-root')">Raíces múltiples<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="section-1 " id="section-incremental" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/incremental-img.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>Busquedas incrementales</h2>
+                            <p>
+                                El método búsquedas incrementales trabaja con un punto inicial y un cambio para este punto, donde en una función que sea continua el método buscará un
+                                intervalo que contenga una raíz y devolverá este. Para buscar el intervalo el método usa el punto de partida y crea un nuevo punto donde este estará ubicado
+                                n el punto inicial más el cambio para este punto, el nuevo punto lo comparamos con el punto inicial y si notamos que tienen signos diferentes entonces tomamos
+                                los dos valores como el intervalo. Cuando no encuentra el intervalo comparando con el punto inicial entonces se creará un nuevo punto 2 el cual seguirá el
+                                mismo procedimiento que antes. Si no se encuentra ningún intervalo normalmente se define un número de iteraciones el cual funciona como parada para el método.
+                            </p>
+                            <p>
+                                En la siguiente imagen [1] podemos ver cómo se ejecuta el método, y la forma para saber que hay cambio de signo: F(n) * F(n + cambio) < 0  = true,  con esta condición
+                                podemos saber que encontramos los intervalos.
+                            </p>
+                            <p>A continuación, el procedimiento que se debe de seguir para la aplicación del método:</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-1 " id="section-bisection" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/bisection-img.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>Biseccion</h2>
+                            <p class="pt-4">Este método de la bisección consiste en realizar las divisiones sucesivamente
+                                en el intervalo [a, b], por la mitad, hasta que la longitud del sub intervalo
+                                que contiene a la raíz, sea menor que alguna tolerancia especificada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-1 " id="section-rule" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/rule-img.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>Raices multiples</h2>
+                            <p>
+                                El método de regla falsa es muy parecido al método de bisección, la única variante en este es la forma en que es calculado el punto medio, Para esto se
+                                tienen dos puntos los cuales se sabe que uno está por debajo del eje x y otro está por encima del eje x, la idea con este método es que al trazar una
+                                recta entre dos puntos, el punto que corte el eje x será el punto medio que crea los dos nuevos sub intervalos, ahora mirando el valor de f(medio) y el
+                                signo y comparando este  con los signos de  f(a) y f(b) elegiremos  uno de los dos sub intervalos para volver a hacer el mismo procedimiento.
+                            </p>
+                            <p>
+                                En la siguiente gráfica se tienen 2 puntos (a, f(a)) y (b, f(b)) los primero que se hace es trazar una recta entre estos dos puntos, como se puede observar
+                                el punto de la recta que corta el eje x será nuestro nuevo punto medio y lo llamaremos x1, ahora como se ve que f(x1) * f(a) ! < 0 pero f(x1) * f(b) < 0
+                                Entonces se elige el intervalo de la derecha para asegurar que la recta entre los puntos corte el eje x. Luego se coge el punto (f(x1)) y se traza una recta
+                                con el punto (b, f(b)) el punto que corta con el eje x será el nuevo punto medio, en este caso es x2.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-1 " id="section-point" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/point-img.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>Punto fijo</h2>
+                            <p>
+                                El Método del Punto Fijo reformula la ecuación f(x)=0 y genera una ecuación de la forma x=g(x) que permite encontrar un valor de x que al reemplazarlo en g
+                                su resultado sea el mismo, es decir que x sea invariable para g, y adicionalmente que la f(x) converja a cero.
+                            </p>
+                            <p>
+                                A continuación, el procedimiento que se debe de seguir para la aplicación del método:
+
+                            <p>Se debe elegir dos aproximaciones iniciales X0.</p>
+                            <p>Se calcula el X1 = g(x1).</p>
+                            <p>Se calcula el X2 = g(x2) … Xn = g(xn -1).</p>
+                            <p>Se repite el paso anterior hasta que se llegue a una aproximación</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-1 " id="section-newton">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/point-img.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>Newton</h2>
+                            <p>
+                                El método de Newton, también se conoce con el nombre de método de Newton-Raphson o método de Newton-Fourier, es un algoritmo que se utiliza para poder encontrar las aproximaciones del cero o de las raíces en una función.
+
+                                Puede ser útil si desea encontrar el máximo o el mínimo de una función, generando la primera derivada y aproximándola a cero.
+
+                                Esto se puede calcular mediante la ecuación:
+                            </p>
+                            <p>
+                                A continuación, el procedimiento que se debe de seguir para la aplicación del método:
+
+                                <p>Se debe elegir dos aproximaciones iniciales X0.</p>
+                                <p>Se calcula el X1 = g(x1).</p>
+                                <p>Se calcula el X1 = g(x1).</p>
+                                <p>Se calcula el X1 = g(x1).</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-1 " id="section-secant">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/secant-img.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>Secante</h2>
+                            <p>
+                                El Método de la Secante no siempre converje. Es recomendable buscar un par de buenos valores iniciales, y en lo posible, que definan un intervalo que contenga una raíz.
+
+                                Es un método abierto porque parte de dos valores iniciales. Es decir el método calcula valores mediante los dos últimos y desecha siempre el más viejo de todos.
+
+                                El método de la secante se puede ver como una variante del método de punto fijo, en la cual la función g depende de dos valores. También se puede ver como una variante del
+                                método de Newton en el sentido en que la derivada se aproxima mediante la pendiente de la recta secante que une los puntos de la función asociados con los valores que se van a
+                                utilizar para calcular el valor actual.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-1 " id="section-root">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/secant-img.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>Raices multiples</h2>
+                            <p>
+                                El Método de Raíces Múltiples facilita la solución de problemas en donde una misma raíz Xnpuede repetirse en la ecuación, ya que para los métodos de Newton y secante puede
+                                darse el caso de una convergencia lineal si hay presencia de raíces múltiples por lo que el método fallaría y no se resolvería la ecuación, es ahí donde es importante
+                                implementar un proceso diferente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container-fluid p-0">
+                <div class="row text-left">
+                    <div class="col-md-10 col-sm-12">
+                        <h2 class="text-light">Sobre el proyecto</h2>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p class="text-muted"> @2019 Derechos reservados</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    </body>
+</html>

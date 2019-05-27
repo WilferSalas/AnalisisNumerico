@@ -1,0 +1,226 @@
+/** Google Fonts **/
+@import url('https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+section {
+    overflow-x: hidden;
+}
+:root{
+    --Snigle-font: "Sniglet", cursive;
+    --Rubik: "Rubik", cursive;
+    --Patua: "Patua one", cursive;
+    --Lobster: "Lobster", cursive;
+    --light-black: #2e2c2caf;
+    --bggradient: linear-gradient(to bottom, #D47B35, #6CB0D3);
+    --light-gray: rgba(255, 255, 255, 0)
+
+}
+
+/** Menu de navegacion **/
+header a {
+    font-family: var(--Snigle-font);
+    font-size: 0.9em;
+    color: whitesmoke;
+}
+header{
+    background: #dd2476;
+    background: var(--bggradient);
+}
+header .nav-item:last-child{
+    padding-right: 10.5em;
+}
+header .nav-item {
+    padding: 0.9em;
+}
+header .navbar-brand {
+    padding-left: 8rem;
+}
+header .navbar-brand:hover {
+    color: black;
+}
+header .nav-link:hover {
+    color: black;
+}
+header .row .col-md-5 {
+    padding: 4.2vmin 1vmin;
+}
+header .row .col-md-7 {
+    padding: 22vmin 1vmin 35vmin;
+    font-family: var(--Rubik);
+    color: white;
+}
+header .row .col-md-5 img{
+    width: 45%;
+    padding: 25vmin 1vmin;
+    color: white;
+    border-radius: 10%;
+}
+header .container .col-md-7 h1{
+    font-size: 8.5vmin;
+    font-weight: bold;
+    padding: 0.1em 0em;
+}
+header .container .col-md-7 p{
+    padding: 1vmin 5vmin;
+}
+header .container .col-md-7 a {
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+/** Seccion 1**/
+.section-1 {
+    padding: 20vmin 0;
+}
+.section-1 .row .col-md-6 .pray img {
+    opacity: 0.8;
+    width: 80%;
+    border-radius: 0.2em;
+}
+.section-1 .row .col-md-6:last-child{
+    position: relative;
+}
+.section-1 .row .col-md-6 .panel{
+    position: absolute;
+    top: 7vmin;
+    left: -18vmin;
+    background: white;
+    border-radius: 3px;
+    text-align: left;
+    padding: 13vmin 5vmin 20vmin 10vmin;
+    box-shadow: 0 25px 42px rgba(0, 0, 0, 0.2);
+    font-family: var(--Rubik);
+    z-index: 1;
+}
+.section-1 .row .col-md-6 .panel h2{
+    font-weight: bold;
+    padding: 0.4em 0;
+    font-size: 2em;
+}
+.section-1 .row .col-md-6 .panel p {
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/** Seccion 2**/
+.cover {
+    width: 100%;
+    height: 55vmin;
+    background: url("../assets/background.png") -24rem -19rem;
+    background-size: 100%;
+    position: relative;
+}
+.cover .content{
+    background: rgba(0, 0 , 0, 0.4);
+    height: 100%;
+    width: 100%;
+    padding-top: 19vmin;
+}
+.cover .content > h2 {
+    font-family: var(--Patua);
+    font-size: 6vmin;
+    color: whitesmoke;
+}
+.cover .content > p {
+    font-family: var(--Rubik);
+    font-size: 2vmin;
+    color: #e5e5e5;
+}
+.numbers .rect {
+    position: relative;
+    z-index: 1;
+    background: white;
+    width: 12rem;
+    height: 12rem;
+    padding-top: 3.5vmin;
+    margin: 1rem;
+    border-radius: .5rem;
+    box-shadow: 1px 2px 50px 0px rgba(255, 0, 0, 0.349);
+}
+.numbers {
+    margin-top: -15vmin;
+}
+.numbers .rect h2 {
+    font-size: 5rem;
+    color: tomato;
+}
+.numbers .rect p {
+    font-family: var(--Patua);;
+}
+.methods {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.methods > h2 {
+    padding-top: 15vmin;
+    padding-bottom: 0.1em;
+    font-family: var(--Lobster);;
+}
+.methods p {
+    color: var(--light-black);
+    font-size: 3vmin;
+    padding-bottom: 10vmin;
+}
+.methods .cards .card{
+    width: 22rem;
+    margin: 3vmin;
+}
+.cards div{
+    padding: 0;
+    margin: 0;
+}
+.cards .title-1{
+    width: 100%;
+    height: 17vmin;
+    background: url("../assets/Ecuaciones no lineales.png") 0rem 17rem;
+    background-size: 100%;
+    position: relative;
+}
+.cards .title-2{
+    width: 100%;
+    height: 17vmin;
+    background: url("../assets/Sistemas-de-ecuaciones.png") 0rem 17rem;
+    background-size: 100%;
+    position: relative;
+}
+.cards .title-3{
+    width: 100%;
+    height: 17vmin;
+    background: url("../assets/Interpolacion.png") 0rem 17rem;
+    background-size: 100%;
+    position: relative;
+}
+.card .card-text {
+    padding: 2.5rem 3rem;
+    color: var(--light-black);
+}
+.cards .card-button {
+    margin: 20px;
+    padding-top: 30px;
+}
+
+
+/** Footer **/
+footer {
+    background: rgba(0, 0, 0, 0.815);
+    overflow-x: hidden;
+    padding: 14vmin 18vmin;
+}
+footer .column i {
+    color: #dd2476;
+}
+footer .column i+i {
+    padding: 0 0.5em;
+}
+
+/** Menu de navegacion sticky **/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.815);
+    z-index: 9999;
+    transition: all 1.5s ease;
+}

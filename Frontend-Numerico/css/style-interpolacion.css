@@ -1,0 +1,163 @@
+/** Google Fonts **/
+@import url('https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+section {
+    overflow-x: hidden;
+}
+:root{
+    --Snigle-font: "Sniglet", cursive;
+    --Rubik: "Rubik", cursive;
+    --Patua: "Patua one", cursive;
+    --Lobster: "Lobster", cursive;
+    --light-black: #2e2c2caf;
+    --bggradient: linear-gradient(to bottom, #D47B35, #6CB0D3);
+    --light-gray: rgba(255, 255, 255, 0)
+
+}
+
+/** Menu de navegacion **/
+header a {
+    font-family: var(--Snigle-font);
+    font-size: 0.9em;
+    color: whitesmoke;
+}
+header{
+    background: #dd2476;
+    background: var(--bggradient);
+}
+header .nav-item:last-child{
+    padding-right: 10.5em;
+}
+header .nav-item {
+    padding: 0.9em;
+}
+header .navbar-brand {
+    padding-left: 8rem;
+}
+header .navbar-brand:hover {
+    color: black;
+}
+header .nav-link:hover {
+    color: black;
+}
+header .row .col-md-5 {
+    padding: 4.2vmin 1vmin;
+}
+header .row .col-md-7 {
+    padding: 0;
+    font-family: var(--Rubik);
+    color: white;
+}
+header .row .col-md-5 img{
+    width: 45%;
+    padding: 25vmin 1vmin;
+    color: white;
+    border-radius: 10%;
+}
+header .container .col-md-7 h1{
+    font-size: 8.5vmin;
+    font-weight: bold;
+    padding: 0.1em 0em;
+}
+header .container .col-md-7 p{
+    padding: 1vmin 5vmin;
+}
+header .container .col-md-7 a {
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+/** Menu 2 **/
+main nav {
+    background: rgba(0, 0, 0, 0.1);
+}
+main .nav-item a {
+    font-family: var(--Snigle-font);
+    font-size: 0.9em;
+    color: whitesmoke;
+}
+main .nav-item:last-child{
+    padding-right: 10.5em;
+}
+main .nav-item {
+    padding: 0.1em;
+    color: #D47B35;
+}
+main .navbar-brand {
+    padding-left: 8rem;
+}
+main nav li .nav-link:hover {
+    color: white;
+}
+main #section-Lagrange {
+    display: none;
+}
+main #section-trazadores {
+    display: none;
+}
+
+/** Seccion 1**/
+.section-1 {
+    padding: 20vmin 0;
+}
+.section-1 .row .col-md-6 .pray img {
+    opacity: 0.8;
+    width: 80%;
+    border-radius: 0.2em;
+}
+.section-1 .row .col-md-6:last-child{
+    position: relative;
+}
+.section-1 .row .col-md-6 .panel{
+    position: absolute;
+    top: 7vmin;
+    left: -14vmin;
+    background: white;
+    border-radius: 3px;
+    text-align: left;
+    padding: 13vmin 5vmin 20vmin 10vmin;
+    box-shadow: 0 25px 42px rgba(0, 0, 0, 0.2);
+    font-family: var(--Rubik);
+    z-index: 1;
+}
+.section-1 .row .col-md-6 .panel h2{
+    font-weight: bold;
+    padding: 0.4em 0;
+    font-size: 2em;
+}
+.section-1 .row .col-md-6 .panel p {
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/** Imagenes **/
+
+/** Footer **/
+footer {
+    background: rgba(0, 0, 0, 0.815);
+    overflow-x: hidden;
+    padding: 14vmin 18vmin;
+}
+footer .column i {
+    color: #dd2476;
+}
+footer .column i+i {
+    padding: 0 0.5em;
+}
+
+
+.text-methods {
+    padding: 5vmin 25vmin;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.815);
+    z-index: 9999;
+    transition: all 1.5s ease;
+}
