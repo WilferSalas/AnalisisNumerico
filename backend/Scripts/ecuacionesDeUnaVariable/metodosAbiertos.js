@@ -144,14 +144,10 @@ gestMetodosAbiertos.newton = function(iter, tole, x1, funcUser, func2User){
                 }
 
             }else{
-                data = {
-                    message: "Hay una derivada por 0 y no se puede iniciar la ejecucion"
-                }
+                data.message = "Hay una derivada por 0 y no se puede iniciar la ejecucion";
             }
     }else{
-        data = {
-            message : "Se encontro la raiz con x: " + x1 
-        }
+        daata.message = "Se encontro la raiz con x: " + x1;
     }
 
     return data;

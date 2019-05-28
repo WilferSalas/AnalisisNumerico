@@ -23,7 +23,7 @@ exports.biseccion = (req, res, next) => {
         fetchedUser = user;
         //Se espera que se mande un request con el numero de la funcion, donde se pretende manterne el mismo orden siempre para las funciones
         if(!user.funciones[req.body.numeroFuncion]){
-            res.status(404).json({
+            res.status(501).json({
                 message: "El usuario no tiene la funcion deseada"
             });
         }
@@ -37,7 +37,7 @@ exports.biseccion = (req, res, next) => {
         });
 
     }).catch(err => {
-        res.status(404).json({
+        res.status(501).json({
             err: err
         });
     });
