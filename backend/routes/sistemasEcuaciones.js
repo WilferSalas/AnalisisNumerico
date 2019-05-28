@@ -9,4 +9,6 @@ router.post("/luDoolittle", sistemasEcuaciones.doolittle);
 router.post("/luCrout", sistemasEcuaciones.crout);
 router.post("/luCholesky", sistemasEcuaciones.cholesky);
 
+router.post("/jacobi", sistemasEcuaciones.jacobi);
+
 module.exports = router
