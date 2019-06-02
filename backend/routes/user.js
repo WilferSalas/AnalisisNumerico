@@ -8,5 +8,6 @@ router.post("/register",  userController.createUser);
 router.post("/login", userController.userLogin);
 router.post("/addFunction",checkFunction, userController.addFunction);
 router.post("/addSistema", userController.addSistem);
+router.post("/getFunctions", userController.getFunctions);
 
 module.exports = router

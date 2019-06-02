@@ -29,7 +29,6 @@ exports.biseccion = (req, res, next) => {
         }
         
         let result = gestMetodosCerrados.biseccion(req.body.iter, req.body.tole, req.body.x1, req.body.x2, user.funciones[req.body.numeroFuncion]);
-        console.log(result);
 
         res.status(200).json({
             message: "Se logro ejecutar biseccion correctamente", 

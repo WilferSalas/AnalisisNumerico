@@ -82,6 +82,20 @@ exports.addSistem = (req, res, next) => {
       });
 }
 
+exports.getFunctions = (req, res, next) => {
+User.findOne({email: req.body.email})
+.then(user => {
+  res.status(200).json({
+    funciones: user.funciones
+  });
+})
+.catch(err => {
+  res.status(404).json({
+    message:"Hubo un problema al encontrar el usuario"
+  });
+});
+}
+
 exports.userLogin = (req, res, next) => {
     let fetchedUser;
     User.findOne({ email: req.body.email })
