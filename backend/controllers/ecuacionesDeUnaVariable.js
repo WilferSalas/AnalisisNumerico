@@ -28,7 +28,7 @@ exports.biseccion = (req, res, next) => {
             });
         }
         
-        let result = gestMetodosCerrados.biseccion(req.body.iter, req.body.tole, req.body.x1, req.body.x2, user.ffuncion);
+        let result = gestMetodosCerrados.biseccion(req.body.iter, req.body.tole, req.body.x1, req.body.x2, req.body.ffuncion);
 
         res.status(200).json({
             message: "Se logro ejecutar biseccion correctamente", 
@@ -61,7 +61,7 @@ exports.reglaFalsa = (req, res, next) => {
         }
         
         
-        let result = gestMetodosCerrados.reglaFalsa(req.body.iter, req.body.tole, req.body.x1, req.body.x2, user.ffuncion);
+        let result = gestMetodosCerrados.reglaFalsa(req.body.iter, req.body.tole, req.body.x1, req.body.x2, req.body.ffuncion);
         console.log(result);
 
         res.status(200).json({
@@ -101,7 +101,7 @@ exports.puntoFijo = (req, res, next) => {
         }
         
         fetchedFunctions = user.funciones;
-        let result = gestMetodosAbiertos.puntoFijo(req.body.iter,req.body.tole, req.body.x1, user.ffuncion, user.gfuncion);
+        let result = gestMetodosAbiertos.puntoFijo(req.body.iter,req.body.tole, req.body.x1, req.body.ffuncion, req.body.gfuncion);
         console.log(result);
 
         res.status(200).json({
@@ -141,7 +141,7 @@ exports.newton = (req, res, next) => {
         }
         
         fetchedFunctions = user.funciones;
-        let result = gestMetodosAbiertos.newton(req.body.iter,req.body.tole, req.body.x1, user.ffuncion, user.fpfuncion);
+        let result = gestMetodosAbiertos.newton(req.body.iter,req.body.tole, req.body.x1, req.body.ffuncion, req.body.fpfuncion);
         console.log(result);
 
         res.status(200).json({
@@ -175,7 +175,7 @@ exports.secante = (req, res, next) => {
         }
         
         
-        let result = gestMetodosAbiertos.secante(req.body.iter, req.body.tole, req.body.x1, req.body.x2, user.ffuncion);
+        let result = gestMetodosAbiertos.secante(req.body.iter, req.body.tole, req.body.x1, req.body.x2, req.body.ffuncion);
         console.log(result);
 
         res.status(200).json({
@@ -218,9 +218,9 @@ exports.raicesMultiples = (req, res, next) => {
         let result = gestMetodosAbiertos.raicesMultiples(req.body.iter,
             req.body.tole, 
             req.body.x1, 
-            user.ffuncion, 
-            user.fpfuncion,
-            user.fppfuncion);
+            req.body.ffuncion, 
+            req.body.fpfuncion,
+            req.body.fppfuncion);
         console.log(result);
 
         res.status(200).json({
