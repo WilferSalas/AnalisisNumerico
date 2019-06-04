@@ -21,12 +21,6 @@ exports.biseccion = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        //Se espera que se mande un request con el numero de la funcion, donde se pretende manterne el mismo orden siempre para las funciones
-        if(!user.funciones[req.body.numeroFuncion]){
-            res.status(501).json({
-                message: "El usuario no tiene la funcion deseada"
-            });
-        }
         
         let result = gestMetodosCerrados.biseccion(req.body.iter, req.body.tole, req.body.x1, req.body.x2, req.body.ffuncion);
 
@@ -53,12 +47,6 @@ exports.reglaFalsa = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        //Se espera que se mande un request con el numero de la funcion, donde se pretende manterne el mismo orden siempre para las funciones
-        if(!user.funciones[req.body.numeroFuncion]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion deseada"
-            });
-        }
         
         
         let result = gestMetodosCerrados.reglaFalsa(req.body.iter, req.body.tole, req.body.x1, req.body.x2, req.body.ffuncion);
@@ -88,17 +76,6 @@ exports.puntoFijo = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        //Se espera que se mande un request con el numero de la funcion, donde se pretende manterne el mismo orden siempre para las funciones
-        if(!user.funciones[req.body.numeroFuncion1]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion fx deseada"
-            });
-        }
-        if(!user.funciones[req.body.numeroFuncion2]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion gx deseada"
-            });
-        }
         
         fetchedFunctions = user.funciones;
         let result = gestMetodosAbiertos.puntoFijo(req.body.iter,req.body.tole, req.body.x1, req.body.ffuncion, req.body.gfuncion);
@@ -128,17 +105,6 @@ exports.newton = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        //Se espera que se mande un request con el numero de la funcion, donde se pretende manterne el mismo orden siempre para las funciones
-        if(!user.funciones[req.body.numeroFuncion1]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion fx deseada"
-            });
-        }
-        if(!user.funciones[req.body.numeroFuncion2]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion gx deseada"
-            });
-        }
         
         fetchedFunctions = user.funciones;
         let result = gestMetodosAbiertos.newton(req.body.iter,req.body.tole, req.body.x1, req.body.ffuncion, req.body.fpfuncion);
@@ -167,13 +133,6 @@ exports.secante = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        //Se espera que se mande un request con el numero de la funcion, donde se pretende manterne el mismo orden siempre para las funciones
-        if(!user.funciones[req.body.numeroFuncion]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion deseada"
-            });
-        }
-        
         
         let result = gestMetodosAbiertos.secante(req.body.iter, req.body.tole, req.body.x1, req.body.x2, req.body.ffuncion);
         console.log(result);
@@ -202,18 +161,6 @@ exports.raicesMultiples = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        //Se espera que se mande un request con el numero de la funcion, donde se pretende manterne el mismo orden siempre para las funciones
-        if(!user.funciones[req.body.numeroFuncion1]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion fx deseada"
-            });
-        }
-        if(!user.funciones[req.body.numeroFuncion2]){
-            res.status(404).json({
-                message: "El usuario no tiene la funcion gx deseada"
-            });
-        }
-        
         fetchedFunctions = user.funciones;
         let result = gestMetodosAbiertos.raicesMultiples(req.body.iter,
             req.body.tole, 
