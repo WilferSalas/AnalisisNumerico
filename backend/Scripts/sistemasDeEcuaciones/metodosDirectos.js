@@ -144,13 +144,13 @@ gestMetodosDirectos.factorizacionDoolittle = function(matrix, b){
 for(let i=0;i < aux[0];i++){
     for(let j=0;j<aux[0];j++){
         if(i < j){
-          u = math.subset(u, math.index(i,j), null);
+          u = math.subset(u, math.index(i,j), 0);
           l = math.subset(l, math.index(i,j), 0);
         }else if(i > j){
           u = math.subset(u, math.index(i,j), 0);
-          l = math.subset(l, math.index(i,j), null);
+          l = math.subset(l, math.index(i,j), 0);
         }else if(i == j){
-          u = math.subset(u, math.index(i,j), null);
+          u = math.subset(u, math.index(i,j), 0);
           l = math.subset(l, math.index(i,j), 1);
         }
     }
@@ -257,14 +257,14 @@ gestMetodosDirectos.factorizacionCrout = function(matrix, b){
 for(let i=0;i < aux[0];i++){
     for(let j=0;j<aux[0];j++){
         if(i < j){
-          u = math.subset(u, math.index(i,j), null);
+          u = math.subset(u, math.index(i,j), 0);
           l = math.subset(l, math.index(i,j), 0);
         }else if(i > j){
           u = math.subset(u, math.index(i,j), 0);
-          l = math.subset(l, math.index(i,j), null);
+          l = math.subset(l, math.index(i,j), 0);
         }else if(i == j){
           u = math.subset(u, math.index(i,j), 1);
-          l = math.subset(l, math.index(i,j), null);
+          l = math.subset(l, math.index(i,j), 0);
         }
     }
 }
@@ -370,14 +370,14 @@ gestMetodosDirectos.factorizacionCholesky = function(matrix, b){
 for(let i=0;i < aux[0];i++){
     for(let j=0;j<aux[0];j++){
         if(i < j){
-          u = math.subset(u, math.index(i,j), null);
+          u = math.subset(u, math.index(i,j), 0);
           l = math.subset(l, math.index(i,j), 0);
         }else if(i > j){
           u = math.subset(u, math.index(i,j), 0);
-          l = math.subset(l, math.index(i,j), null);
+          l = math.subset(l, math.index(i,j), 0);
         }else if(i == j){
-          u = math.subset(u, math.index(i,j), 1);
-          l = math.subset(l, math.index(i,j), 1);
+          u = math.subset(u, math.index(i,j), 0);
+          l = math.subset(l, math.index(i,j), 0);
         }
     }
 }
