@@ -138,7 +138,7 @@ exports.secante = (req, res, next) => {
         console.log(result);
 
         res.status(200).json({
-            message: "Se logro ejecutar Regla falsa correctamente", 
+            message: "Se logro ejecutar secante correctamente", 
             results: result
         });
 
@@ -171,7 +171,7 @@ exports.raicesMultiples = (req, res, next) => {
         console.log(result);
 
         res.status(200).json({
-            message: "Se logro ejecutar Newton correctamente", 
+            message: "Se logro ejecutar Raices multiples correctamente", 
             results: result
         });
 

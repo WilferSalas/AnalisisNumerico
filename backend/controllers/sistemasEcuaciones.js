@@ -74,7 +74,7 @@ exports.eliminacionGausseanaConPivoteoParcial = (req, res, next) => {
         let result = gestMetodosDirectos.eliminacionGausseanaConPivoteoParcial(matrix);
 
         res.status(200).json({
-            message: "Se logro ejecutar Eliminacion Gausseana correctamente", 
+            message: "Se logro ejecutar Eliminacion Gausseana con pivoteo parcial correctamente", 
             results: result
         });
 
@@ -150,7 +150,7 @@ exports.crout = (req, res, next) => {
         let result = gestMetodosDirectos.factorizacionCrout(matrix, req.body.b);
 
         res.status(200).json({
-            message: "Se logro ejecutar LU Cholesky correctamente", 
+            message: "Se logro ejecutar LU Crout correctamente", 
             results: result
         });
 
@@ -227,7 +227,7 @@ exports.jacobi = (req, res, next) => {
         let result = gestMetodosIterativos.jacobi(matrix, req.body.b, req.body.x0, req.body.iter, req.body.tole);
 
         res.status(200).json({
-            message: "Se logro ejecutar LU Cholesky correctamente", 
+            message: "Se logro ejecutar Jacobi correctamente", 
             results: result
         });
 
@@ -266,7 +266,7 @@ exports.gauss = (req, res, next) => {
         let result = gestMetodosIterativos.gaussSeidel(matrix, req.body.b, req.body.x0, req.body.iter, req.body.tole);
 
         res.status(200).json({
-            message: "Se logro ejecutar LU Cholesky correctamente", 
+            message: "Se logro ejecutar Gauss-seidel correctamente", 
             results: result
         });
 
@@ -305,7 +305,7 @@ exports.jacobiRelajado = (req, res, next) => {
         let result = gestMetodosIterativos.jacobiRelajado(matrix, req.body.b, req.body.x0, req.body.iter, req.body.tole, req.body.alpha);
 
         res.status(200).json({
-            message: "Se logro ejecutar LU Cholesky correctamente", 
+            message: "Se logro ejecutar Jacobi relajado correctamente", 
             results: result
         });
 
@@ -344,7 +344,7 @@ exports.gaussRelajado = (req, res, next) => {
         let result = gestMetodosIterativos.gaussSeidelRelajado(matrix, req.body.b, req.body.x0, req.body.iter, req.body.tole, req.body.alpha);
 
         res.status(200).json({
-            message: "Se logro ejecutar LU Cholesky correctamente", 
+            message: "Se logro ejecutar Gauss-seidel relajado correctamente", 
             results: result
         });
 
