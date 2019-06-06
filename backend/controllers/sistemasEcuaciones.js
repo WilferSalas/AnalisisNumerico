@@ -85,6 +85,44 @@ exports.eliminacionGausseanaConPivoteoParcial = (req, res, next) => {
     });
 }
 
+exports.eliminacionGausseanaConPivoteoTotal = (req, res, next) => {
+    let fetchedUser;
+
+    User.findOne({email: req.body.email}).then(user => {
+        if(!user){
+            res.status(404).json({
+                message: "Fallo la authentificacion"
+            });
+        }
+        fetchedUser = user;
+        let sistemas = req.body.sistemaSend;
+        let auxSistema = [];
+        sistemas = JSON.parse(sistemas);
+        for(var index in sistemas){
+            auxSistema.push(sistemas[index]);
+        }
+        auxSistema.forEach(e => {
+            for (let index = 0; index < e.length; index++) {
+                e[index] = parseFloat(e[index]);
+                
+            }
+        });
+
+        const matrix = math.matrix(auxSistema);
+        let result = gestMetodosDirectos.eliminacionGausseanaConPivoteoTotal(matrix);
+
+        res.status(200).json({
+            message: "Se logro ejecutar Eliminacion Gausseana con pivoteo total correctamente", 
+            results: result
+        });
+
+    }).catch(err => {
+        res.status(404).json({
+            err: err
+        });
+    });
+}
+
 exports.doolittle = (req, res, next) => {
     let fetchedUser;
 

@@ -130,6 +130,97 @@ gestMetodosDirectos.eliminacionGausseanaConPivoteoParcial= function(matrix){
 
 }
 
+gestMetodosDirectos.eliminacionGausseanaConPivoteoTotal= function(matrix){
+  let aux = matrix.size();
+  let data = {
+    k: [],
+    logEjecucionSistemas: [],
+    xn: []
+  };
+  let ab = math.zeros(aux[0],aux[1]);
+  let aux1 = [];  
+  let multiplicador;
+
+  data.k.push(0);
+  data.logEjecucionSistemas.push(matrix);
+  console.log(matrix);
+
+  for (let k = 0; k < aux[0] - 1 ; k++) {
+
+    data.k.push(k+1);
+    console.log(k+1);
+    console.log("-------------------------------------------------------");
+    let mayor = 0;
+    let filaMayor = k-1;
+    let columnaMayor = k-1;
+    let marcas = [aux[0]];
+    for(let r = k-1; r< aux[0]; r++){
+      for(let s = k-1; s< aux[0]; s++){
+        if(math.abs(math.subset(matrix,math.index(r,s)))){
+          filaMayor = r;
+          columnaMayor = s;
+        }
+      }
+    }
+    if(mayor == 0){
+      console.log("El sistema no tiene solucion unica");
+    }else{
+      if(filaMayor != k-1){
+        for(let i = 0; i< matrix[0].length ; i++){
+          let aux = math.subset(matrix, math.index(k-1, i));
+          matrix = math.subset(matrix, math.index(k-1, i), math.subset(matrix, math.index(filaMayor,i)));
+          matrix = math.subset(matrix, math.index(filaMayor, i), aux);
+        }
+        console.log(matrix);
+      }
+    }
+    if(columnaMayor != k-1){
+      for(let i = 0; i< matrix[0].length; i++){
+        let aux = math.subset(matrix, math.index(i, k-1));
+        matrix = math.subset(matrix, math.index(i, k-1), math.subset(matrix, math.index(i,columnaMayor)));
+        matrix = math.subset(matrix, math.index(i, columnaMayor), aux);
+      }
+      let aux2 =  marcas[columnaMayor];
+      marcas[columnaMayor] = marcas[k-1];
+      marcas[k-1] = aux2;
+      console.log(matrix);
+    }
+    for (let i = k+1; i < aux[0]; i++) {
+
+      multiplicador = math.divide(math.subset(matrix, math.index(i, k)),math.subset(matrix, math.index(k, k)));
+      console.log("Multiplicador: " + i.toString() + " " + k.toString() + " " + multiplicador.toString());
+      console.log(multiplicador);
+      for (let j = k; j < aux[1]; j++) {
+        
+        let aux2 = math.multiply(multiplicador,math.subset(matrix,math.index(k,j)));
+        let aux3 = math.subset(matrix, math.index(i,j));
+        matrix = math.subset(matrix, math.index(i,j), math.subtract(aux3,aux2));
+      }
+      
+    }
+          data.logEjecucionSistemas.push(matrix);
+          console.log(matrix);
+  }
+  let auxn = math.divide(math.subset(matrix, math.index(aux[0]-1,aux[0])),math.subset(matrix, math.index(aux[0]-1, aux[0]-1)));
+  let xn = [];
+  for(let omega = 0; omega < aux[0]; omega++){
+    xn.push(0);
+  }
+  xn[aux[0]-1] = auxn;
+  for (let i = aux[0]; i > 0; i--) {
+    let sumatoria = 0;
+    for (let p = i+1; p <= aux[0]; p++) {
+      sumatoria = math.add(sumatoria, math.multiply(math.subset(matrix, math.index(i-1,p-1)),xn[p-1]));
+      xn[i-1] = math.divide(math.subtract(math.subset(matrix, math.index(i-1,aux[0])),sumatoria),math.subset(matrix, math.index(i-1,i-1)));
+    }
+    
+  }
+  data.xn = xn;
+  console.log(xn);
+  return data;
+
+}
+
 gestMetodosDirectos.factorizacionDoolittle = function(matrix, b){
   let aux = matrix.size();
   let l = math.zeros(aux[0],aux[1]);

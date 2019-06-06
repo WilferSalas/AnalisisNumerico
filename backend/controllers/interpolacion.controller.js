@@ -9,9 +9,22 @@ math.config({
 
 exports.newton = (req, res, next) => {
 try{
-gestPolInt.newton(req.body.x, req.body.y,req.body.valor);
-res.send("hey");
+let aux = gestPolInt.newton(req.body.x, req.body.y,req.body.valor);
+res.status(200).json({
+    result: aux 
+})
 }catch{
-res.send("hou");
+res.send("error");
 }
 }
+
+exports.lagrange = (req, res, next) => {
+    try{
+    let aux = gestPolInt.lagrange(req.body.x, req.body.y,req.body.valor);
+    res.status(200).json({
+        result: aux
+    })
+    }catch{
+    res.send("hou");
+    }
+    }

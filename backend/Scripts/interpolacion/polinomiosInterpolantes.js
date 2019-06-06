@@ -17,9 +17,8 @@ gestPolinomiosInterpolantes.newton = function(x,y,val){
     let acum = 0;
     let prod = 1;
     data = {
-        n: [],
         logSistemas: [],
-        acum
+        acum: 0
     }
 
     for(let i = 0; i<n; i++){
@@ -27,15 +26,20 @@ gestPolinomiosInterpolantes.newton = function(x,y,val){
         for(let j = 1; j <= i; j++){
             matrix = math.subset(matrix, math.index(i,j), math.divide(math.subtract(math.subset(matrix, math.index(i,j-1)),math.subset(matrix, math.index(i-1, j-1))),math.subtract(x[i],x[i-j])));
             console.log(matrix);
+            data.logSistemas.push(matrix);
         }
         if(i>0){
             prod = math.multiply(math.subtract(val,x[i-1]),prod);
         }
         acum = math.add(math.multiply(math.subset(matrix, math.index(i,i)),prod), acum);
-        console.log(acum);
+        data.acum = acum;
     }
+
+    return data;
+
     }catch (error){
         console.log(error);
+        return data;
     }
 }
 
@@ -66,13 +70,16 @@ gestPolinomiosInterpolantes.lagrange = function(x,y,val){
         }
         aux[i] = prod;
         acum = math.add(math.multiply(aux[i],y[i]), acum);
-        pol += (y[i]>0?"+":"")+y[i]+"*"+termino+"\n";
+        data.pol += (y[i]>0?"+":"")+y[i]+"*"+termino+"\n";
         console.log(pol);
     }
     console.log("ACUM-----------------")
     console.log(acum);
+    data.result = acum;
+    return data;
 }catch (error){
     console.log(error);
+    return data;
 }
 }
 

@@ -4,6 +4,7 @@ const router = express();
 
 const interpolacion = require("../controllers/interpolacion.controller");
 
-router.post("/interpolacion", interpolacion.newton);
+router.post("/newton", interpolacion.newton);
+router.post("/lagrange", interpolacion.lagrange);
 
 module.exports = router;
