@@ -10,6 +10,7 @@ const dotenv = require('dotenv');
 const ecuUnaVar = require('./routes/ecUnaVar');
 const user = require('./routes/user');
 const sisEcu = require('./routes/sistemasEcuaciones');
+const inter = require('./routes/interpolacion');
 
 dotenv.config();
   
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 app.use("/api/user", user);
 app.use("/api/ecuUnaVar", ecuUnaVar);
 app.use("/api/sisEcu", sisEcu);
+app.use("/api/interpolacion", inter);
 
 //Diciendole a la app el puerto donde va a escuchar.
 app.listen(app.get('port'), () =>{

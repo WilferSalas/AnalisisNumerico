@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const math = require('mathjs')
+const math = require('mathjs');
 const gestMetodosCerrados = require("../Scripts/ecuacionesDeUnaVariable/metodosCerrados");
 const gestMetodosAbiertos = require("../Scripts/ecuacionesDeUnaVariable/metodosAbiertos");
 

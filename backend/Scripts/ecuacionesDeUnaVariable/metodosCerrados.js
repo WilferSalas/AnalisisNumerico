@@ -133,7 +133,7 @@ gestMetodosC.reglaFalsa = function(iter, tole, x1, x2, funcUser){
                 console.log("Chek1");
                 let fxm = parser.eval('f(' + xm + ')');
                 cont = cont + 1;
-                let errorRel = math.divide(errorAbs, parseFloat(xm));
+                let errorRel = math.bignumber(math.divide(math.bignumber(errorAbs), xm));
 
                 data.n.push(cont);
                 data.xm.push(xm);
@@ -155,7 +155,7 @@ gestMetodosC.reglaFalsa = function(iter, tole, x1, x2, funcUser){
                    fxm = parser.eval('f(' + xm + ')');
                    cont = cont + 1 ;
                    errorAbs = math.abs(math.subtract(math.bignumber(xm), math.bignumber(aux)));
-                   errorRel = math.divide(math.bignumber(errorAbs), math.bignumber(aux));
+                   errorRel = math.bignumber(math.divide(math.bignumber(errorAbs), aux));
                    
                    data.n.push(cont);
                    data.xm.push(xm);

@@ -71,7 +71,7 @@ gestMetodosAbiertos.puntoFijo = function(iter, tole, x1, funcUser, func2User){
                 let xm = parser.eval('g(' + x1 + ')');
                 let fxm = parser.eval('f(' + xm + ')');
                 cont = cont + 1;
-                let errorRel = math.divide(errorAbs, parseFloat(xm));
+                let errorRel = math.bignumber(math.divide(errorAbs, xm));
 
                 data.n.push(cont);
                 data.xm.push(xm);
@@ -85,7 +85,7 @@ gestMetodosAbiertos.puntoFijo = function(iter, tole, x1, funcUser, func2User){
                    fxm = parser.eval('f(' + xm + ')');
                    cont = cont + 1 ;
                    errorAbs = math.abs(math.subtract(math.bignumber(xm), math.bignumber(aux)));
-                   errorRel = math.divide(math.bignumber(errorAbs), math.bignumber(aux));
+                   errorRel = math.bignumber(math.divide(errorAbs, aux));
                    
                    data.n.push(cont);
                    data.xm.push(xm);
@@ -142,7 +142,7 @@ gestMetodosAbiertos.newton = function(iter, tole, x1, funcUser, func2User){
                 let xm = math.subtract(x1, math.divide(eval1, fp));
                 let fxm = parser.eval('f(' + xm + ')');
                 cont = cont + 1;
-                let errorRel = math.divide(errorAbs, parseFloat(xm));
+                let errorRel = math.bignumber(math.divide(errorAbs, xm));
 
                 data.n.push(cont);
                 data.xm.push(xm);
@@ -158,7 +158,7 @@ gestMetodosAbiertos.newton = function(iter, tole, x1, funcUser, func2User){
                    fp = parser.eval('fp(' + xm + ')');
                    cont = cont + 1 ;
                    errorAbs = math.abs(math.subtract(math.bignumber(xm), math.bignumber(aux)));
-                   errorRel = math.divide(math.bignumber(errorAbs), math.bignumber(aux));
+                   errorRel = math.bignumber(math.divide(errorAbs, aux));
                    console.log("pase3")
                    data.n.push(cont);
                    data.xm.push(xm);
@@ -229,7 +229,7 @@ gestMetodosAbiertos.secante = function(iter, tole, x1, x2, funcUser){
                 console.log("Chek1");
                 let fxm = parser.eval('f(' + xm + ')');
                 cont = cont + 1;
-                let errorRel = math.divide(errorAbs, parseFloat(xm));
+                let errorRel = math.bignumber(math.divide(errorAbs, xm));
 
                 data.n.push(cont);
                 data.xm.push(xm);
@@ -249,7 +249,7 @@ gestMetodosAbiertos.secante = function(iter, tole, x1, x2, funcUser){
                    fxm = parser.eval('f(' + xm + ')');
                    cont = cont + 1 ;
                    errorAbs = math.abs(math.subtract(math.bignumber(xm), math.bignumber(aux)));
-                   errorRel = math.divide(math.bignumber(errorAbs), math.bignumber(aux));
+                   errorRel = math.bignumber(math.divide(errorAbs, xm));
                    
                    data.n.push(cont);
                    data.xm.push(xm);
@@ -330,7 +330,7 @@ gestMetodosAbiertos.raicesMultiples = function(iter, tole, x1, funcUser, func2Us
                 xx1 = xm;
                 eval1 = parser.eval('f(' + xx1 + ')');
                 cont = cont + 1;
-                let errorRel = math.divide(errorAbs, parseFloat(xm));
+                let errorRel = math.bignumber(math.divide(errorAbs, xm));
                 data.n.push(cont);
                 data.xm.push(xm);
                 data.fxm.push(fxm);
@@ -347,7 +347,7 @@ gestMetodosAbiertos.raicesMultiples = function(iter, tole, x1, funcUser, func2Us
                    eval1 = parser.eval('f(' + xx1 + ')');
                    cont = cont + 1 ;
                    errorAbs = math.abs(math.subtract(math.bignumber(xm), math.bignumber(aux)));
-                   errorRel = math.divide(math.bignumber(errorAbs), math.bignumber(aux));
+                   errorRel = math.bignumber(math.divide(errorAbs, aux));
                    data.n.push(cont);
                    data.xm.push(xm);
                    data.fxm.push(fxm);
