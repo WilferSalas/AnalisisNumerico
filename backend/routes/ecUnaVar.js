@@ -9,6 +9,6 @@ router.post("/puntoFijo", ecUnaVarController.puntoFijo);
 router.post("/newton", ecUnaVarController.newton);
 router.post("/secante", ecUnaVarController.secante);
 router.post("/raicesMultiples", ecUnaVarController.raicesMultiples);
-
+router.post("/busquedas", ecUnaVarController.busquedas);
 
 module.exports = router

@@ -7,6 +7,47 @@ math.config({
     precision: 64        // Number of significant digits for BigNumbers
   })
 
+gestMetodosAbiertos.busquedasIncrementales = function(iter, x1, delta, funcUser){
+    const parser = math.parser();
+    parser.eval(funcUser);
+    let data = {
+        n: [],
+        xm: [], 
+        f1timesf2: []
+    };
+    console.log("Entra");
+    let cont = 0;
+    let itera = parseInt(iter);
+    let eval1 = parser.eval('f(' + x1 + ')');
+    cont = cont + 1;
+    let xm = math.add(x1,delta);
+    let eval = parser.eval('f(' + x1 + ')');
+    let eval2 = math.multiply(eval1, eval);
+    data.n.push(cont);
+    data.xm.push(xm);
+    data.f1timesf2.push(eval2);
+    while(eval2 > 0 && cont <= itera){
+
+        x1 = xm;
+        eval1 = eval;
+        xm = math.add(xm,delta);
+        eval = parser.eval('f(' + xm + ')');
+        eval2 = math.multiply(eval1, eval);
+        cont = cont +1;
+        data.n.push(cont);
+        data.xm.push(xm);
+        data.f1timesf2.push(eval2);
+    } 
+    if(eval2 < 0){
+        console.log("Se encontro una raiz en intervalo [" + x1 +","+ xm + "]");
+        return data;
+    }else{
+        console.log("Se llego al maximo de iteraciones");
+        return data;
+    }
+
+}
+
 gestMetodosAbiertos.puntoFijo = function(iter, tole, x1, funcUser, func2User){
     const parser = math.parser();
     parser.eval(funcUser);

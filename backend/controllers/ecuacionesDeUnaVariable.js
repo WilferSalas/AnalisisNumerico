@@ -10,6 +10,32 @@ math.config({
   })
   
 
+exports.busquedas = (req, res, next) => {
+    let fetchedUser;
+    let funcion;
+
+    User.findOne({email: req.body.email}).then(user => {
+        if(!user){
+            res.status(404).json({
+                message: "Fallo la authentificacion"
+            });
+        }
+        fetchedUser = user;
+        
+        let result = gestMetodosAbiertos.busquedasIncrementales(req.body.iter, req.body.x1, req.body.delta, req.body.ffuncion);
+
+        res.status(200).json({
+            message: "Se logro ejecutar Busquedas incrementales correctamente", 
+            results: result
+        });
+
+    }).catch(err => {
+        res.status(501).json({
+            err: err
+        });
+    });
+}
+
 exports.biseccion = (req, res, next) => {
     let fetchedUser;
     let funcion;
