@@ -19,7 +19,7 @@ exports.eliminacionGausseana = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -57,7 +57,7 @@ exports.eliminacionGausseanaConPivoteoParcial = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -95,7 +95,7 @@ exports.doolittle = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -133,7 +133,7 @@ exports.crout = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -171,7 +171,7 @@ exports.cholesky = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -209,7 +209,7 @@ exports.jacobi = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -248,7 +248,7 @@ exports.gauss = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -287,7 +287,7 @@ exports.jacobiRelajado = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
@@ -326,7 +326,7 @@ exports.gaussRelajado = (req, res, next) => {
             });
         }
         fetchedUser = user;
-        let sistemas = fetchedUser.sistemas[req.body.numeroSistema];
+        let sistemas = req.body.sistemaSend;
         let auxSistema = [];
         sistemas = JSON.parse(sistemas);
         for(var index in sistemas){
