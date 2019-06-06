@@ -7,6 +7,11 @@
         width: initial;
         height: initial;
     }
+    .section-2 .container .row .col-md-6 .panel {
+        position: initial;
+        width: initial;
+        height: initial;
+    }
     .section-2 .cover {
         background-position: -25vmin -20vmin;
     }
@@ -42,5 +47,6 @@
         width: 80%;
         height: auto;
     }
+
 }
 

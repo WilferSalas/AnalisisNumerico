@@ -60,7 +60,7 @@ header .row .col-md-5 img{
 header .container .col-md-7 h1{
     font-size: 8.5vmin;
     font-weight: bold;
-    padding: 0.1em 0em;
+    padding: 0.1em 0;
 }
 header .container .col-md-7 p{
     padding: 1vmin 5vmin;
@@ -112,18 +112,19 @@ main #section-root {
 }
 
 /** Seccion 1**/
-.section-1 {
-    padding: 20vmin 0;
+.section-2 {
+    padding: 10vmin 0;
+    font-family: var(--Snigle-font)
 }
-.section-1 .row .col-md-6 .pray img {
+.section-2 .row .col-md-6 .pray img {
     opacity: 0.8;
     width: 80%;
     border-radius: 0.2em;
 }
-.section-1 .row .col-md-6:last-child{
+.section-2 .row .col-md-6:last-child{
     position: relative;
 }
-.section-1 .row .col-md-6 .panel{
+.section-2 .row .col-md-6 .panel{
     position: absolute;
     top: 7vmin;
     left: -14vmin;
@@ -135,17 +136,88 @@ main #section-root {
     font-family: var(--Rubik);
     z-index: 1;
 }
-.section-1 .row .col-md-6 .panel h2{
+.section-2 .row .col-md-6 .panel h2{
     font-weight: bold;
     padding: 0.4em 0;
     font-size: 2em;
 }
-.section-1 .row .col-md-6 .panel p {
+.section-2 .row .col-md-6 .panel p {
     font-size: 0.9em;
     color: rgba(0, 0, 0, 0.5);
 }
 
-/** Imagenes **/
+
+/** Formularios **/
+
+.message-api {
+    padding-top: 10vmin;
+}
+
+#errorAbsoluto {
+    display: none;
+}
+
+#errorAbsolutoRule {
+    display: none;
+}
+
+#errorAbsolutoPoint {
+    display: none;
+}
+
+#errorAbsolutoNewton {
+    display: none;
+}
+
+#errorAbsolutoSecant {
+    display: none;
+}
+
+#errorAbsolutoRoots {
+    display: none;
+}
+
+.message-api {
+    padding-top: 10vmin;
+}
+
+.buttonInformation {
+    padding: 0.5vmin 0 0 2vmin;
+}
+
+.textFloat {
+    position: absolute;
+    z-index: 1;
+    padding: 1vmin;
+    margin-left: -5.5vmin;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    width: 15vmin;
+
+}
+
+.buttonInformation i {
+    cursor: pointer;
+}
+
+.buttonInformation i:hover {
+    color: rgba(0,0,0,0.69);
+}
+
+.buttonInformation i .textFloat {
+    display: none;
+}
+
+.buttonInformation i:hover > .textFloat {
+    display: block;
+    font-size: 0.4em;
+    margin-top: 1vmin;
+}
+
+.radioButton .col-1 {
+    padding-left: 1vmin;
+}
 
 /** Footer **/
 footer {
@@ -160,10 +232,15 @@ footer .column i+i {
     padding: 0 0.5em;
 }
 
-
 .text-methods {
     padding: 5vmin 25vmin;
 }
+
+.btn-space {
+    margin-right: 8vmin;
+}
+
+
 
 .sticky {
     position: fixed;
@@ -173,3 +250,11 @@ footer .column i+i {
     z-index: 9999;
     transition: all 1.5s ease;
 }
+
+/** **/
+.scroll {
+    overflow-x: scroll;
+}
+
+
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Sistema de ecuaciones</title>
@@ -68,272 +68,691 @@
                     <a class="nav-link" href="#" onclick="return toggleMe1('section-Doolittle')">Doolittle<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="return toggleMe1('section-Gauss-Seidel')">Gauss Seidel<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="#" onclick="return toggleMe1('section-Jacobi')">Jacobi<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
     </nav>
-    <section class="section-1 " id="section-gauss" >
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
+    <div id="app">
+
+        <!-- Seccion de Gauss Jordan-->
+
+        <section class="section-2 " id="section-gauss" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>Eliminación gaussiana simple</h2>
-                        <p class="pt-4">Pendiente</p>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageGaussSimple }}</h2>
+                            <p class="pt-4">{{ contentGaussSimple }}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-pivoteo-parcial" >
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>Eliminación guassiana simple con pivoteo parcial</h2>
-                        <p>
-                            Todas las técnicas de pivoteo pretenden reducir los efectos del error de propagación (redondeo) y tratan de evitar que se presenten divisiones por cero. Para
-                            lograrlo buscan que sobre la diagonal de la matriz resultante de la fase se ubiquen los elementos mayores posibles. Con ello se busca que en la fase de eliminacion
-                            los multiplicadores sean lo menor posible y en la de sustitución los elementos que dividen sean lo mayor posible
 
-                            <p>El Pivoteo Parcial logra que los multiplicadores sean menores o iguales a 1. Pero, en la sustitución los elementos que dividen no siempre son lo mayor posible.</p>
+                    <!-- Formulario de Gauss Jordan-->
 
-                            <p>La técnica de pivoteo parcial no reduce tanto el error de propagación pero en tiempo de ejecución es la más rápida.</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-pivoteo-total" >
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>Eliminación guassiana simple con pivoteo total</h2>
-                        <p>
-                            La Eliminación Gaussiana con Pivoteo Total consiste en: teniendo una matriz de coeficientes y un vector de términos independientes de un
-                            sistema de ecuaciones lineales, crear una matriz aumentada y  convertir  de la matriz de coeficientes en una matriz triangular superior
-                            dejando como pivote el número más grande (en valor absoluto) de toda matriz de coeficientes para cada etapa y luego realizar una sustitución
-                            regresiva para para la matriz aumentada, para realizar una sustitución regresiva y así hallar el valor de cada una de las variables. El
-                            tener como pivote el número más grande de toda la matriz de coeficientes (en valor absoluto) hará que la solución tenga un menor error.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-lu-gauss" >
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2> LU con eliminación guassiana simple</h2>
-                        <p>La factorización LU de una matriz es una factorización que resume el proceso de eliminación gaussiana aplicado a la matriz y que es conveniente en
-                            términos del número total de operaciones de punto flotante cuando se desea calcular la inversa de una matriz o cuando se resolverá una serie de sistemas de
-                            ecuaciones con una misma matriz de coeficientes. En la lectura, primeramente consideraremos la factorización LU sin intercambio basada en matrices elementales y
-                            que es conocida como de Doolittle y posteriormente veremos el algoritmo que da la factorización</p>
+                    <div class="container forms">
+                        <div class="col text-left">
+                            <div class="d-flex justify-content-center">
+                                <h2>Agregar datos</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h2>Ecuaciones</h2>
+                                            <div class="row tabla" >
+                                                <div class="col-md-12 col-sm-12" >
+                                                    <table class="table table-striped table-bordered">
+                                                        <tr>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                            <td><input type="number"></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
 
-                       <p> PA = LU</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-lu-pivoteo-parcial">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>LU con pivoteo parcial</h2>
-                        <p>
-                            Dada la ecuación matricial
 
-                            <p>Ax=LUx=b</p>
+                                            <div class="rows">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-dark"  @click="gaussSimple">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row message-api">
+                                        <div class="col text-center">
+                                            <h2>{{ messageApi1GaussSimple }}</h2>
+                                        </div>
+                                    </div>
 
-                            <p>Queremos la solución para un determinando A y b. Los pasos son los siguientes:</p>
-
-                            <p>Primero, resolvemos para Ly=b y</p>
-                            <p>Segundo, resolvemos  Ux= y para x.</p>
-                            <p>Nótese que ya tenemos las matrices L y U. La ventaja de este método es que es computacionalmente eficiente, porque podemos elegir el vector b que nos parezca y no tenemos que
-                                volver a hacer la eliminación de Gauss cada vez.</p>
-
-                            <p>
-                                Al utilizar la técnica de triangulación de Gauss para obtener la descomposición L-U de una matriz A podemos encontrarnos con el mismo problema de encontrar un coeficiente en
-                                la diagonal que sea 0 o un mal condicionamiento. Podemos entonces utilizar la misma técnica de pivotación: buscar el siguiente elemento en la columna que sea distinto de 0 o,
-                                mejor aún, el de mayor valor absoluto.</p>
-
-                            <p>
-                                Pero una vez obtenida la descomposición L-U, si queremos aplicarla a resolver un sistema de ecuaciones, tendremos que tener en cuenta la “historia” o registro de las pivotes
-                                efectuadas para aplicar al vector de términos independientes.
-                            </p>
-
-                            <p>
-                                Esto se realiza mediante la matriz de permutación P, que consiste en efectuar sobre la matriz identidad, las mismas permutaciones de filas que se vayan efectuando sobre la matriz
-                                que se está triangulando por Gauss.
-                            </p>
-
-                            <p>Al mismo tiempo se efectúan las mismas permutaciones sobre los elementos subdiagonal de la matriz L.</p>
-
-                            <p>Así, si tenemos, por ejemplo, el sistema:</p>
-
-                            <p>AX=B</p>
-
-                            <p>y L y U son las matrices obtenidas de la matriz A como descomposición L-U por triangulación de Gauss con pivotes recogidas en la matriz de permutación P, es fácil comprobar que :</p>
-
-                            <p>LU=PA (LU)X=P(AX)=PB=NUEVOB</p>
-                        </p>
+                                    <div class="row tabla" >
+                                        <div class="col-md-12 col-sm-12" v-for="items in resultsGaussSimple">
+                                            <table class="table table-striped table-bordered">
+                                                <tr v-for="item in items.data">
+                                                    <td v-for="element in item">{{element}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row tabla d-flex justify-content-center text-center">
+                                        <div class="col-6">
+                                            <table class="table table-striped table-borderless">
+                                                <tr>
+                                                    <th>Fase: Sustitucion regresiva</th>
+                                                </tr>
+                                                <tr v-for="(items, index) in xnGaussSimple">
+                                                    <td>X{{+1+index}} : {{items}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-Crout">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
+        </section>
+
+        <!-- Formulario de Pivoteo parcial -->
+
+        <section class="section-2 " id="section-pivoteo-parcial" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messagePivoteoParcial }}</h2>
+                            <p>{{ contentePivoteoParcial }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Pivoteo parcial -->
+
+                    <div class="container forms">
+                        <div class="col text-left">
+                            <div class="d-flex justify-content-center">
+                                <h2>Agregar datos</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label for="section-gauss" class="col-sm-2 col-form-label">Funcion</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control" autocomplete="true">
+                                                </div>
+                                            </div>
+                                            <div class="rows">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-dark"  @click="gaussSimplePivoteo">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row message-api">
+                                        <div class="col text-center">
+                                            <h2>{{ messageApi1GaussSimplePivoteo }}</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="row tabla" >
+                                        <div class="col-md-12 col-sm-12" v-for="items in resultsGaussSimplePivoteo">
+                                            <table class="table table-striped table-borderless">
+                                                <tr v-for="item in items.data">
+                                                    <td v-for="element in item">{{element}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row tabla d-flex justify-content-center text-center">
+                                        <div class="col-6">
+                                            <table class="table table-striped table-bordered">
+                                                <tr>
+                                                    <th>Fase: Sustitucion regresiva</th>
+                                                </tr>
+                                                <tr v-for="(items, index) in xnGaussSimplePivoteo">
+                                                    <td>X{{+1+index}} : {{items}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>Crout</h2>
-                        <p>
-                            En el Método de Crout la matriz A es factorizada como A=LU en donde la matriz L es una matriz triangular inferior y U una matriz triangular superior con diagonal unitaria.
-                            El método de Crout es un procedimiento del tipo recursivo, esto significa el desarrollo de un conjunto de pasos sucesivos en donde el trabajo a realizar en cada paso resulta
-                            similar o del mismo tipo pero basado en resultados obtenidos en pasos anteriores. Estos pasos consiten en la descomposición sucesiva de los menores principales de la matriz de
-                            coeficientes A
+            </div>
+        </section>
 
-                            <p> De manera similar al método de cholesky se hace la siguiente consideración para poder obtener los coeficientes de L y U</p>
+        <!-- Formulario de Pivoteo total-->
 
-                            <p>Uii=1</p>
-                        </p>
+        <section class="section-2 " id="section-pivoteo-total" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messagePivoteoTotal }}</h2>
+                            <p>{{ contentePivoteoTotal }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-Cholesky">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
+        </section>
+
+        <!-- Formulario de LU Gauss-->
+
+        <section class="section-2 " id="section-lu-gauss" >
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>Cholesky</h2>
-                        <p>
-                            Una matriz cuadrada A con pivotes diferentes de cero puede ser escrita como el producto de una matriz triangular inferior L y una matriz triangular superior U. Sin embargo, si
-                            A es simétrica, se puden escoger os factores tales que U es la transpuesta de L, y esto se llama la descomposición o Factorización de Cholesky. Tanto la descomposición LU como
-                            la descomposición de Cholesky son usadas para resolver sistemas de ecuaciones lineales.
-                            Cuando es aplicable. la descomposición de Cholesky es dos veces más eficiente que la descomposición LU. Cabe destacar que para plantear este método se debe hacer la siguiente
-                            consideración:
-
-                            <p>Uii=Lii</p>
-
-                            <p>Bajo esta declaración es posible formar un sitema de ecuaciones que contenga n ecuaciones y n incógnitas y que por ende tenga solución única, siempre y cuando el determinante de
-                                la matriz de coeficientes sea diferente de 0.</p>
-
-                        </p>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageLUGauss }}</h2>
+                            <p>{{ contentLUGauss }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-Doolittle">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
+        </section>
+
+        <!-- Formulario de LU Pivoteo parcial-->
+
+        <section class="section-2 " id="section-lu-pivoteo-parcial">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>Doolittle</h2>
-                        <p>
-                            El Método de Doolittle es una variación de Crout que obtiene las matrices de factorización LU fila a fila o columna a columna Resulta útil para matrices de grandes dimensiones
-                            de las cuales solo se guardan fila a fila o columna a columna los elementos distintos de cero.
-
-                            <p>La diagonal en L está compuesta de unos, luego Lii=1</p>
-
-                        </p>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageLUPivoteoParcial }}</h2>
+                            <p>{{ contentLUPivoteoParcial }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="section-1 " id="section-Jacobi">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="pray">
-                        <img src="../assets/matrices.png" alt="Pray">
+        </section>
+
+        <!-- Formulario de Crout -->
+
+        <section class="section-2 " id="section-Crout">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageCrout }}</h2>
+                            <p>{{ contentCrout }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Crout -->
+
+                    <div class="container forms">
+                        <div class="col text-left">
+                            <div class="d-flex justify-content-center">
+                                <h2>Agregar datos</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label for="section-gauss" class="col-sm-2 col-form-label">Funcion</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control" autocomplete="true">
+                                                </div>
+                                            </div>
+                                            <div class="rows">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-dark"  @click="crout">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row message-api">
+                                        <div class="col text-center">
+                                            <h2>{{ messageApi1Crout }}</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="row tabla" >
+                                        <div class="col-md-12 col-sm-12" v-for="items in resultsCrout">
+                                            <table class="table table-striped table-bordered">
+                                                <tr v-for="item in items.data">
+                                                    <td v-for="element in item">{{element}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row tabla d-flex justify-content-center text-center">
+                                        <div class="col-6">
+                                            <table class="table table-striped table-borderless">
+                                                <tr>
+                                                    <th>Fase: Sustitucion regresiva</th>
+                                                </tr>
+                                                <tr v-for="(items, index) in xnCrout">
+                                                    <td>X{{+1+index}} : {{items}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="col-md-6">
-                    <div class="panel text-left">
-                        <h2>Jacobi</h2>
-                        <p>
-                            El Método de Jacobi es un método iterativo para resolver sistemas de ecuaciones lineales del tipo AX=b. Este método consiste en usar fórmulas como iteración de punto fijo.
+            </div>
+        </section>
 
-                            <p>La base del método consiste en construir una sucesión convergente definida iterativamente. El límite de esta sucesión es precisamente la solución del sistema.
-                        A efectos prácticos si el algoritmo se detiene después de un número finito de pasos se llega a una aproximación al valor de X de la solución del sistema.</p>
+        <!-- Seccion de Choleski -->
 
-                            <p>La sucesión se construye descomponiendo la matriz del sistema A en la forma siguiente:</p>
+        <section class="section-2 " id="section-Cholesky">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageCholesky }}</h2>
+                            <p>{{ contentCholesky }}</p>
+                        </div>
+                    </div>
 
-                            <p>A=D+R</p>
+                    <!-- Formulario Choleski -->
 
-                        </p>
+                    <div class="container forms">
+                        <div class="col text-left">
+                            <div class="d-flex justify-content-center">
+                                <h2>Agregar datos</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label for="section-gauss" class="col-sm-2 col-form-label">Funcion</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control" autocomplete="true">
+                                                </div>
+                                            </div>
+                                            <div class="rows">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-dark"  @click="choleski">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row message-api">
+                                        <div class="col text-center">
+                                            <h2>{{ messageApi1Choleski }}</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="row tabla" >
+                                        <div class="col-md-12 col-sm-12" v-for="items in resultsCholeski">
+                                            <table class="table table-striped table-bordered">
+                                                <tr v-for="item in items.data">
+                                                    <td v-for="element in item">{{element}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row tabla d-flex justify-content-center text-center">
+                                        <div class="col-6">
+                                            <table class="table table-striped table-borderless">
+                                                <tr>
+                                                    <th>Fase: Sustitucion regresiva</th>
+                                                </tr>
+                                                <tr v-for="(items, index) in xnCholeski">
+                                                    <td>X{{+1+index}} : {{items}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion de Doolittle-->
+
+        <section class="section-2 " id="section-Doolittle">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageDoolittle }}</h2>
+                            <p>{{ contentDoolittle }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulario DDoolittle -->
+
+                    <div class="container forms">
+                        <div class="col text-left">
+                            <div class="d-flex justify-content-center">
+                                <h2>Agregar datos</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label for="section-gauss" class="col-sm-2 col-form-label">Funcion</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control" autocomplete="true">
+                                                </div>
+                                            </div>
+                                            <div class="rows">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-dark"  @click="doolittle">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row message-api">
+                                        <div class="col text-center">
+                                            <h2>{{ messageApi1Doolittle }}</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="row tabla" >
+                                        <div class="col-md-12 col-sm-12" v-for="items in resultsDoolittle">
+                                            <table class="table table-striped table-bordered">
+                                                <tr v-for="item in items.data">
+                                                    <td v-for="element in item">{{element}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row tabla d-flex justify-content-center text-center">
+                                        <div class="col-6">
+                                            <table class="table table-striped table-borderless">
+                                                <tr>
+                                                    <th>Fase: Sustitucion regresiva</th>
+                                                </tr>
+                                                <tr v-for="(items, index) in xnDoolittle">
+                                                    <td>X{{+1+index}} : {{items}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Gauss Seidel -->
+
+        <section class="section-2 " id="section-Gauss-Seidel">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageGaussSeidel }}</h2>
+                            <p>{{ contentGaussSeidel }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulario Gauss Seidek -->
+
+                    <div class="container forms">
+                        <div class="col text-left">
+                            <div class="d-flex justify-content-center">
+                                <h2>Agregar datos</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label for="section-gauss" class="col-sm-2 col-form-label">Funcion</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control" autocomplete="true">
+                                                </div>
+                                            </div>
+                                            <div class="rows">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-dark"  @click="seidel">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row message-api">
+                                        <div class="col text-center">
+                                            <h2>{{ messageApi1Seidel }}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row tabla" >
+                                        <div class="col-md-3 col-sm-12">
+                                            <table class="table" >
+                                                <tr>
+                                                    <th>Iteraciones</th>
+                                                </tr>
+                                                <tr v-for="item in iterSeidel">
+                                                    <td v-text="item"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <div class="col-md-3 col-sm-12" >
+                                                <table class="table ">
+                                                    <tr>
+                                                        <th>x1</th>
+                                                        <th>x2</th>
+                                                        <th>x3</th>
+                                                    </tr>
+                                                    <tr v-for="items in xnSeidel">
+                                                        <td v-for="element in items">{{element}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-12">
+                                            <div class="scroll">
+                                                <table class="table">
+                                                    <tr>
+                                                        <th>Error</th>
+                                                    </tr>
+                                                    <tr v-for="item in errorSeidel">
+                                                        <td v-text="item"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion Jacobi -->
+
+        <section class="section-2 " id="section-Jacobi">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="pray">
+                            <img src="../assets/matrices.png" alt="Pray">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel text-left">
+                            <h2>{{ messageJacobi }}</h2>
+                            <p>{{ contentJacobi }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulario Jacobi -->
+
+                    <div class="container forms">
+                        <div class="col text-left">
+                            <div class="d-flex justify-content-center">
+                                <h2>Agregar datos</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label for="section-gauss" class="col-sm-2 col-form-label">Funcion</label>
+                                                <div class="col-9">
+                                                    <input type="text" class="form-control" autocomplete="true">
+                                                </div>
+                                            </div>
+                                            <div class="rows">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-dark"  @click="jacobi">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row message-api">
+                                        <div class="col text-center">
+                                            <h2>{{ messageApi1Jacobi }}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row tabla" >
+                                        <div class="col-md-2 col-sm-12">
+                                            <table class="table" >
+                                                <tr>
+                                                    <th>Iteraciones</th>
+                                                </tr>
+                                                <tr v-for="item in iterJacobi">
+                                                    <td v-text="item"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+
+                                        <div>
+                                            <div class="col-md-3 col-sm-12" >
+                                                <table class="table ">
+                                                    <tr>
+                                                        <th>x1</th>
+                                                        <th>x2</th>
+                                                        <th>x3</th>
+                                                    </tr>
+                                                    <tr v-for="items in xnJacobi">
+                                                        <td v-for="element in items">{{element}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-12">
+                                            <div class="scroll">
+                                                <table class="table">
+                                                    <tr>
+                                                        <th>Error</th>
+                                                    </tr>
+                                                    <tr v-for="item in errorJacobi">
+                                                        <td v-text="item"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container-fluid p-0">
+                <div class="row text-left">
+                    <div class="col-md-10 col-sm-12">
+                        <h2 class="text-light">{{ contentFooterAbout }}</h2>
+                        <p class="text-muted">{{ contentFooter }}</p>
+                        <p class="text-muted">{{ contentFooterName1 }}</p>
+                        <p class="text-muted">{{ contentFooterName2 }}</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <footer>
-        <div class="container-fluid p-0">
-            <div class="row text-left">
-                <div class="col-md-10 col-sm-12">
-                    <h2 class="text-light">Sobre el proyecto</h2>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p class="text-muted"> @2019 Derechos reservados</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/script2.js"></script>
 </body>
 </html>

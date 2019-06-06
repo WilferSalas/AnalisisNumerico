@@ -117,19 +117,24 @@ main #section-Jacobi {
     display: none;
 }
 
-/** Seccion 1**/
-.section-1 {
-    padding: 20vmin 0;
+main #section-Gauss-Seidel {
+    display: none;
 }
-.section-1 .row .col-md-6 .pray img {
+
+/** Seccion 1**/
+.section-2 {
+    padding: 10vmin 0;
+    font-family: var(--Snigle-font)
+}
+.section-2 .row .col-md-6 .pray img {
     opacity: 0.8;
     width: 80%;
     border-radius: 0.2em;
 }
-.section-1 .row .col-md-6:last-child{
+.section-2 .row .col-md-6:last-child{
     position: relative;
 }
-.section-1 .row .col-md-6 .panel{
+.section-2 .row .col-md-6 .panel{
     position: absolute;
     top: 7vmin;
     left: -14vmin;
@@ -141,17 +146,25 @@ main #section-Jacobi {
     font-family: var(--Rubik);
     z-index: 1;
 }
-.section-1 .row .col-md-6 .panel h2{
+.section-2 .row .col-md-6 .panel h2{
     font-weight: bold;
     padding: 0.4em 0;
     font-size: 2em;
 }
-.section-1 .row .col-md-6 .panel p {
+.section-2 .row .col-md-6 .panel p {
     font-size: 0.9em;
     color: rgba(0, 0, 0, 0.5);
 }
 
-/** Imagenes **/
+/** Formulario **/
+
+.forms {
+    padding-top: 10vmin;
+}
+
+.message-api {
+    padding-top: 10vmin;
+}
 
 /** Footer **/
 footer {
@@ -171,11 +184,15 @@ footer .column i+i {
     padding: 5vmin 25vmin;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.815);
-    z-index: 9999;
-    transition: all 1.5s ease;
+.table {
+    margin-top: 7vmin;
+}
+
+td {
+    width: 20% ;
+}
+
+/** **/
+.scroll {
+    overflow-x: scroll;
 }
